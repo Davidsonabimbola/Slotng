@@ -15,5 +15,24 @@ describe('template spec', () => {
     cy.get('[class="header links"]').then((header_list)=>{
 cy.wrap(header_list).get('li').get('a').contains('My Account').click()
     })
+
+    // sign in by existing user
+
+    cy.get('[id="email"][name="login[username]"').type('stalkerdaveman007@yahoo.com')
+    cy.get('[id="pass"][name="login[password]"').type('34.Stalkguru')
+
+    cy.get('button[id="send2"]').contains('Sign In').as('signIn_button')
+    cy.get('@signIn_button').click()
+
+    // check products
+
+    cy.get('[class="navigation verticalmenu side-verticalmenu"]').as('menu').click()
+    cy.get('@menu').get('ul').get('li').contains('Phones and Tablets').as('choiceProduct')
+    cy.get('@choiceProduct').contains('Phones and Tablets').get('link').eq(0).click({force:true})
+
+    cy.get('[id="maincontent"]').should('be.visible')
+    
+    
+
   })
 })
