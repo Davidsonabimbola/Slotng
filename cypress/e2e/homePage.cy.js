@@ -23,7 +23,7 @@ describe('template spec', () => {
     var Email = 'stalkerdaveman007@yahoo.com'
     var passWord = '34.Stalkguru'
     var ProductName = 'Apple iPhone 15 Pro 256GB Single Sim'
-    var Category = 'Phones and Tablets'
+    //var Category = 'Phones and Tablets'
     cy.visit('https://slot.ng')
     cy.get('[class="header links"]').then((header_list)=>{
 cy.wrap(header_list).get('li').get('a').contains('My Account').click()
@@ -35,7 +35,7 @@ cy.wrap(header_list).get('li').get('a').contains('My Account').click()
     cy.get('button[id="send2"]').contains('Sign In').as('signIn_button')
     cy.get('@signIn_button').click()
 
-    placeOrder.checkProducts(Category)
+    placeOrder.checkProducts()
     placeOrder.selectProduct(ProductName)
     placeOrder.add_toCart()
     placeOrder.viewCart()

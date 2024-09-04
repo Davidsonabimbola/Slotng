@@ -1,8 +1,8 @@
 class calls{
-    checkProducts(Category){
+    checkProducts(){
         cy.get('[class="navigation verticalmenu side-verticalmenu"]').as('menu').click()
-    cy.get('@menu').get('ul').get('li').contains(Category).as('choiceProduct')
-    cy.get('@choiceProduct').contains(Category).get('link').eq(0).click({force:true})
+    cy.get('@menu').get('ul').get('li').contains('Phones and Tablets').as('choiceProduct')
+    cy.get('@choiceProduct').contains('Phones and Tablets').get('link').eq(0).click({force:true})
     //cy.get('@choiceProduct').contains('Phones and Tablets').get('link').eq(0).trigger('mouseover')
     cy.get('[id="maincontent"]').should('be.visible')
     }
